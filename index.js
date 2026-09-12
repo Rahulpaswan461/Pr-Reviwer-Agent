@@ -13,8 +13,8 @@ async function main(){
 
 
     const diffText = isGitHubAction
-        ? process.env.PR_DIFF
-        : fs.readFileSync(0, "utf-8")
+    ? fs.readFileSync("pr.diff", "utf-8")
+    : fs.readFileSync(0, "utf-8")
     
     console.info({diffText})
     if(!diffText){
