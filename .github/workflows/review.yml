@@ -14,7 +14,7 @@ jobs:
 
         env:
             GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
             REPO: ${{ github.repository }}
             PR_NUMBER: ${{ github.event.pull_request.number }}
 
@@ -33,7 +33,7 @@ jobs:
             - name: Fetch PR Diff
               run: |
                   curl -L \
-                    -H "Authorization: Bearer $GITHUB_TOKEN" \
+                    -H "Authorization: Bearer $GH_ACCESS_TOKEN" \
                     -H "Accept: application/vnd.github.v3.diff" \
                     "https://api.github.com/repos/\(REPO/pulls/\)PR_NUMBER" \
                     -o pr.diff
