@@ -33,19 +33,19 @@ jobs:
 
             - name: Fetch PR Diff
               run: |
-                  curl -L \
-                    -H "Authorization: Bearer $GH_ACCESS_TOKEN" \
-                    -H "Accept: application/vnd.github.v3.diff" \
-                    "https://api.github.com/repos/\(REPO/pulls/\)PR_NUMBER" \
-                    -o pr.diff
+                curl -L \
+                  -H "Authorization: Bearer $GH_ACCESS_TOKEN" \
+                  -H "Accept: application/vnd.github.v3.diff" \
+                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER" \
+                  -o pr.diff
 
             - name: Export Diff
               run: |
-                  {
-                    echo "PR_DIFF<<EOF"
-                    cat pr.diff
-                    echo "EOF"
-                  } >> $GITHUB_ENV
+                {
+                  echo 'PR_DIFF<<EOF'
+                  cat pr.diff
+                  echo 'EOF'
+                } >> "$GITHUB_ENV"
 
             - name: Run reviewer
               run: node index.js
