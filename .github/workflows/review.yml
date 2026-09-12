@@ -39,13 +39,5 @@ jobs:
                   "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER" \
                   -o pr.diff
 
-            - name: Export Diff
-              run: |
-                {
-                  echo 'PR_DIFF<<EOF'
-                  cat pr.diff
-                  echo 'EOF'
-                } >> "$GITHUB_ENV"
-
             - name: Run reviewer
               run: node index.js
