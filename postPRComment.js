@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 export async function postPRComment(reviewResult){
-   const token = process.env.GITHUB_TOKEN;
+   const token = process.env.GH_ACCESS_TOKEN;
    const repo = process.env.REPO;
    const prNumber = Number(process.env.PR_NUNBER);
 
