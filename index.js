@@ -9,10 +9,14 @@ import { postPRComment } from './postPRComment.js';
 async function main(){
     const isGitHubAction = process.env.GITHUB_ACTIONS ==="true";
 
+    console.info({isGitHubAction})
+
+
     const diffText = isGitHubAction
         ? process.env.PR_DIFF
         : fs.readFileSync(0, "utf-8")
     
+    console.info({diffText})
     if(!diffText){
         console.error("No diff text provided")
         process.exit(1);
