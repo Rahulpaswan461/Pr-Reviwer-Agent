@@ -15,7 +15,7 @@ jobs:
 
         env:
             GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-            GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+            GH_ACCESS_TOKEN: ${{ github.token }}
             REPO: ${{ github.repository }}
             PR_NUMBER: ${{ github.event.pull_request.number }}
 
