@@ -1,10 +1,10 @@
 import { Octokit } from "@octokit/rest";
-import { toMarkdown } from "./to-markdown";
+import { toMarkdown } from "./to-markdown.js";
 
 export async function postPRComment(reviewResult){
    const token = process.env.GH_ACCESS_TOKEN;
    const repo = process.env.REPO;
-   const prNumber = Number(process.env.PR_NUNBER);
+   const prNumber = Number(process.env.PR_NUMBER);
 
    if(!token || !repo || !prNumber){
     throw new Error("Missing GITHUB_TOKEN,REPO and PR Number")
