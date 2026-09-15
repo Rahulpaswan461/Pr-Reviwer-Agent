@@ -6,7 +6,7 @@ const findingSchema = z.object({
     severity: z.enum(["none","low","medium","high","critical"]),
     summary: z.string(),
     file_path: z.string(),
-    line_number: z.string(),
+    line_number: z.number(),
     evidence: z.string(),
     recommendations: z.string()
 })

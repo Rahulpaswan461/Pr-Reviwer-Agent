@@ -18,7 +18,7 @@ export function toMarkdown(reviewResult){
      output += ` - File: ${finding.file_path}\n`;
      output += ` - Line: ${finding.line_number}\n`;
      output += ` - Summary: ${finding.summary}\n`;
-     output += ` - Evidence: ${finding.evidance}\n`;
+     output += ` - Evidence: ${finding.evidence}\n`;
      output += ` - Recommendation: ${finding.recommendations}\n\n`;
    }
   

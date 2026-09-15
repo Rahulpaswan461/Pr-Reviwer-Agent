@@ -29,9 +29,9 @@ async function main(){
 
     let validated;
     try{
-    const rawJson = JSON.parse(result.content[0].text)
-    validated = reviewSchema.parse(rawJson)
+    validated = reviewSchema.parse(result)
     }catch(error){
+    console.log("error",error)
      validated = failClosedResult(error)
     }
 
